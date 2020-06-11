@@ -19,3 +19,13 @@ test('todo `update` default should return model unmodified', function (t){
   t.deepEqual(model, unmodified_model, "model returned unmodified")
   t.end()
 })
+
+test('add a new todo via the model.todos array', function (t){
+  const model = JSON.parse(JSON.stringify(app.model));
+  t.equal(model.todos.length, 0, "initial model.todos.length is 0");
+  const updated_model = app.update('ADD', model, "Add todo list item")
+  const expected = {id: 1, title: "Add new todo", done: false}
+  t.equal(updated_model.todos.length, 1, "To do item added")
+  t.deepEqual(updated_model.todos[0], expected, "To do list item added")
+  t.end()
+})
