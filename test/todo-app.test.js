@@ -17,4 +17,5 @@ test('todo `update` default should return model unmodified', function (t){
   const model = JSON.parse(JSON.stringify(app.model));
   const unmodified_model = app.update('UNKNOWN_UPDATE', model)
   t.deepEqual(model, unmodified_model, "model returned unmodified")
+  t.end()
 })
