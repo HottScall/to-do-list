@@ -60,3 +60,21 @@ test("`TOGGLE` (undo) a todo item from done=true to done=false", function(t) {
   );
   t.end();
 });
+
+test.only("render a HTML item for a single to do item", function(t) {
+  const model = {
+    todos: [{ id: 1, title: "Learn Elm Architecture", done: true }],
+    hash: "#/" // the route that needs to be displayed
+  };
+  // Render a one to do list item
+  document.getElementById(id).appendChild(app.render_item(model.todos[0]));
+
+  const done = document.querySelectorAll(".completed")[0].textContext;
+  t.equal(done, "Learn Elm Architecture", 'Done: Learn "TEA"');
+
+  const checked = document.querySelectorAll("input")[0].checked;
+  t.equal(checked, true, "Done: " + model.todos[0].title + "is done = true");
+
+  elmish.empty(document.getElementById(id)); // Clear DOM ready for next test
+  t.end();
+});
