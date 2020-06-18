@@ -10,4 +10,12 @@ const id = "test-app"; // all tests use 'test-app' as root element
 
 test('empty "root" removes DOM elements from container', function(t) {
   // set up the test div
+  const text = "hello world";
+  const root = document.getElementById(id);
+  const div = document.createElement("div");
+  div.id = "mydiv";
+  const text = document.createTextNode(text);
+  div.appendChild(txt);
+  div.appendChild(div);
+  // now check the text of the div
 });
