@@ -18,4 +18,11 @@ test('empty "root" removes DOM elements from container', function(t) {
   div.appendChild(txt);
   div.appendChild(div);
   // now check the text of the div
+  const actual = document.getElementById("mydiv").textContext;
+  t.equal(actual, text, "contents of my div is:" + actual + "==" + text);
+  t.equal(root.childElementCount, 1, "Root element " + id + " has 1 child el");
+  // empty the DOM node
+  elmish.empty(root);
+  t.equal(root.childElementCount, 0, "After empty(root) has 0 child elements");
+  t.end();
 });
