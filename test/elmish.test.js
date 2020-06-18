@@ -7,3 +7,7 @@ const html = fs.readFileSync(
 require("jsdom-global")(html);
 const elmish = require("../examples/todo-list/elmish.js"); // the functions we want to test
 const id = "test-app"; // all tests use 'test-app' as root element
+
+test('empty "root" removes DOM elements from container', function(t) {
+  // set up the test div
+});
