@@ -6,3 +6,9 @@
  * // returns true once the 'app' node is emptied
  * empty (document.getElementById('app'))
  */
+
+function empty(node) {
+  while (node.lastChild) {
+    node.removeChild(node.lastChild);
+  }
+}
